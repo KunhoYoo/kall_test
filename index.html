@@ -282,28 +282,28 @@
       z-index: 2;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 11px;
+      gap: 6px;
+      padding: 7px 9px;
       border-radius: 999px;
       background: rgba(255,255,255,.95);
       border: 1px solid rgba(255,255,255,.85);
-      box-shadow: 0 14px 32px rgba(15,23,42,.13);
+      box-shadow: 0 10px 22px rgba(15,23,42,.11);
       backdrop-filter: blur(12px);
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: 920;
       transform: translateZ(60px);
     }
-    .float-left { left: 0; top: 66px; }
-    .float-right { right: -2px; bottom: 68px; }
+    .float-left { left: 10px; top: 78px; }
+    .float-right { right: 10px; bottom: 54px; }
     .chip-symbol {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       display: grid;
       place-items: center;
-      border-radius: 10px;
+      border-radius: 8px;
       color: #fff;
       background: var(--green);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 950;
     }
     .chip-symbol.blue { background: var(--blue); }
@@ -326,13 +326,13 @@
     }
 
     .pricing-frame {
-      border: 1.5px dashed rgba(15,23,42,.34);
-      border-radius: 16px;
-      padding: 10px 8px 9px;
-      background: #fff;
+      border: 1px solid rgba(37,99,255,.10);
+      border-radius: 22px;
+      padding: 12px 10px 11px;
+      background: linear-gradient(180deg, #f8fbff 0%, #fff 100%);
       overflow-x: auto;
       overscroll-behavior-x: contain;
-      box-shadow: 0 8px 20px rgba(15,23,42,.05);
+      box-shadow: 0 14px 32px rgba(37,99,255,.07);
     }
     .pricing-frame::-webkit-scrollbar { height: 6px; }
     .pricing-frame::-webkit-scrollbar-thumb { background: rgba(15,23,42,.16); border-radius: 99px; }
@@ -342,7 +342,7 @@
     .plan-board-title {
       margin: 0 0 9px;
       text-align: center;
-      color: #111827;
+      color: #0f172a;
       font-size: 17px;
       line-height: 1.12;
       font-weight: 950;
@@ -357,33 +357,34 @@
     }
     .price-card {
       --plan-accent: #2563ff;
-      --plan-accent-dark: #173b7a;
+      --plan-accent-dark: #1d4ed8;
+      --plan-tint: #eff6ff;
       position: relative;
       overflow: hidden;
       display: grid;
       grid-template-rows: auto auto auto 1fr auto;
       gap: 6px;
       min-height: 246px;
-      border-radius: 9px;
+      border-radius: 16px;
       padding: 0 8px 8px;
-      background: linear-gradient(180deg, #fff 0%, #fbfcff 100%);
-      border: 1px solid rgba(17,24,39,.10);
-      box-shadow: 0 8px 18px rgba(15,23,42,.06);
+      background: #fff;
+      border: 1px solid rgba(15,23,42,.07);
+      box-shadow: 0 8px 18px rgba(37,99,255,.055);
       cursor: pointer;
       transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
     .price-card::before {
       content: none;
     }
-    .price-card.basic { --plan-accent: #163d77; --plan-accent-dark: #0f2d5d; }
-    .price-card.standard { --plan-accent: #d4aa1e; --plan-accent-dark: #b3890e; }
-    .price-card.rush { --plan-accent: #b83232; --plan-accent-dark: #912525; }
-    .price-card.special { --plan-accent: #2f3d86; --plan-accent-dark: #24306d; }
+    .price-card.basic { --plan-accent: #2563ff; --plan-accent-dark: #1d4ed8; --plan-tint: #eff6ff; }
+    .price-card.standard { --plan-accent: #0ea5e9; --plan-accent-dark: #0284c7; --plan-tint: #f0f9ff; }
+    .price-card.rush { --plan-accent: #6366f1; --plan-accent-dark: #4f46e5; --plan-tint: #eef2ff; }
+    .price-card.special { --plan-accent: #7c3aed; --plan-accent-dark: #6d28d9; --plan-tint: #f5f3ff; }
     .price-card.featured {
       color: var(--ink);
-      background: linear-gradient(180deg, #fffef7 0%, #fff 100%);
-      border-color: rgba(212,170,30,.42);
-      box-shadow: 0 12px 24px rgba(180,137,14,.13);
+      background: #fff;
+      border-color: rgba(14,165,233,.24);
+      box-shadow: 0 12px 24px rgba(14,165,233,.12);
     }
     .price-card.featured::after {
       content: none;
@@ -400,17 +401,17 @@
       display: grid;
       place-items: center;
       padding: 0 6px;
-      color: #fff;
-      background: linear-gradient(180deg, var(--plan-accent) 0%, var(--plan-accent-dark) 100%);
+      color: var(--plan-accent-dark);
+      background: var(--plan-tint);
       font-size: 13px;
       line-height: 1;
       font-weight: 930;
     }
-    .price { margin-top: 6px; color: var(--plan-accent-dark); font-size: 28px; line-height: .95; font-weight: 950; white-space: nowrap; }
+    .price { margin-top: 6px; color: #0f172a; font-size: 25px; line-height: .95; font-weight: 950; white-space: nowrap; }
     .price-card p { margin: 0; color: var(--ink-2); font-size: 9.8px; line-height: 1.3; font-weight: 680; }
     .price-card.featured h3, .price-card.featured .price { color: var(--ink); text-shadow: none; }
-    .price-card.featured h3 { color: #111827; background: linear-gradient(180deg, #f1ca3f 0%, #d2a915 100%); }
-    .price-card.featured .price { color: #b3890e; }
+    .price-card.featured h3 { color: var(--plan-accent-dark); background: var(--plan-tint); }
+    .price-card.featured .price { color: #0f172a; }
     .price-card.featured p { color: var(--ink-2); }
     .price-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(15,23,42,.10); }
     .price-card:focus-visible { outline: 3px solid rgba(37,99,255,.25); outline-offset: 3px; }
@@ -802,8 +803,71 @@
       background: #fff7f7;
       box-shadow: 0 0 0 4px rgba(239,68,68,.10);
     }
-    .field-help { display: none; color: var(--red); font-size: 11px; font-weight: 800; }
+    .field { position: relative; }
+    .field-help {
+      display: none;
+      position: absolute;
+      top: 25px;
+      right: 10px;
+      z-index: 3;
+      max-width: calc(100% - 22px);
+      padding: 2px 6px;
+      border-radius: 999px;
+      color: var(--red);
+      background: rgba(255,247,247,.94);
+      font-size: 9.5px;
+      line-height: 1.2;
+      font-weight: 850;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .field.invalid .field-help { display: block; }
+    .date-control {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 44px;
+      align-items: center;
+    }
+    .date-control input[data-date-input] {
+      grid-column: 1 / -1;
+      padding-right: 48px;
+    }
+    .date-picker-btn {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      transform: translateY(-50%);
+      border-radius: 13px;
+      color: #1d4ed8;
+      background: rgba(37,99,255,.08);
+      border: 1px solid rgba(37,99,255,.10);
+    }
+    .date-picker-btn svg {
+      width: 19px;
+      height: 19px;
+    }
+    .date-picker-native {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      width: 40px !important;
+      min-height: 40px !important;
+      height: 40px;
+      padding: 0 !important;
+      opacity: 0;
+      transform: translateY(-50%);
+      pointer-events: none;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
     .choice {
@@ -1664,10 +1728,10 @@
                 <h2 data-i18n="stepPlanTitle">Choose plan and service type</h2>
                 <p class="copy" data-i18n="stepPlanCopy">Prices are shown in your selected language's currency.</p>
                 <div class="plan-options">
-                  <label class="plan-option"><span><b data-plan-label="Basic">Basic · $6</b><span data-i18n="planBasicShort">Simple inquiry, 1 place, up to 5 call attempts</span></span><span class="plan-price-pill" data-price-plan="Basic">$6</span><input type="radio" name="plan" value="Basic" data-price-usd="6"></label>
-                  <label class="plan-option"><span><b data-plan-label="Standard">Standard · $12</b><span data-i18n="planStandardShort">Reservation request plus alternative time coordination</span></span><span class="plan-price-pill" data-price-plan="Standard">$12</span><input type="radio" name="plan" value="Standard" data-price-usd="12" checked></label>
-                  <label class="plan-option"><span><b data-plan-label="Rush">Rush · $22</b><span data-i18n="planRushShort">Same-day priority, handled within 2 hours</span></span><span class="plan-price-pill" data-price-plan="Rush">$22</span><input type="radio" name="plan" value="Rush" data-price-usd="22"></label>
-                  <label class="plan-option"><span><b data-plan-label="Special">Special · $40</b><span data-i18n="planSpecialShort">10-minute priority start for urgent calls</span></span><span class="plan-price-pill" data-price-plan="Special">$40</span><input type="radio" name="plan" value="Special" data-price-usd="40"></label>
+                  <label class="plan-option"><span><b data-plan-label="Basic">Basic</b><span data-i18n="planBasicShort">Simple inquiry, 1 place, up to 5 call attempts</span></span><span class="plan-price-pill" data-price-plan="Basic">$6</span><input type="radio" name="plan" value="Basic" data-price-usd="6"></label>
+                  <label class="plan-option"><span><b data-plan-label="Standard">Standard</b><span data-i18n="planStandardShort">Reservation request plus alternative time coordination</span></span><span class="plan-price-pill" data-price-plan="Standard">$12</span><input type="radio" name="plan" value="Standard" data-price-usd="12" checked></label>
+                  <label class="plan-option"><span><b data-plan-label="Rush">Rush</b><span data-i18n="planRushShort">Same-day priority, handled within 2 hours</span></span><span class="plan-price-pill" data-price-plan="Rush">$22</span><input type="radio" name="plan" value="Rush" data-price-usd="22"></label>
+                  <label class="plan-option"><span><b data-plan-label="Special">Special</b><span data-i18n="planSpecialShort">10-minute priority start for urgent calls</span></span><span class="plan-price-pill" data-price-plan="Special">$40</span><input type="radio" name="plan" value="Special" data-price-usd="40"></label>
                 </div>
                 <div class="choice-grid" aria-label="Service type">
                   <button class="choice selected" type="button" data-category="Restaurant">
@@ -1703,11 +1767,11 @@
                 <h2 data-i18n="stepDetailTitle">Reservation details</h2>
                 <p class="copy" data-i18n="stepDetailCopy">Preferred and backup dates cannot be in the past.</p>
                 <div class="two-col">
-                  <div class="field"><label for="date1" data-i18n="date1Label">Preferred date</label><input id="date1" name="date1" type="text" inputmode="numeric" data-date-input data-required data-future-date data-i18n-placeholder="datePlaceholder" placeholder="YYYY-MM-DD"><span class="field-help" data-i18n="dateHelp">Choose today or a future date</span></div>
+                  <div class="field"><label for="date1" data-i18n="date1Label">Preferred date</label><div class="date-control"><input id="date1" name="date1" type="text" inputmode="numeric" data-date-input data-required data-future-date data-i18n-placeholder="datePlaceholder" placeholder="YYYY-MM-DD"><button class="date-picker-btn" type="button" data-date-picker-button="date1" aria-label="Open calendar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><input class="date-picker-native" type="date" data-date-picker-for="date1" tabindex="-1" aria-hidden="true"></div><span class="field-help" data-i18n="dateHelp">Choose today or a future date</span></div>
                   <div class="field"><label for="time1" data-i18n="time1Label">Preferred time</label><div class="time-control"><button class="ampm-toggle" type="button" data-time-toggle="time1">PM</button><input id="time1" name="time1" type="time" value="13:00" data-default-time="13:00" data-required></div><span class="field-help" data-i18n="requiredHelp">Required</span></div>
                 </div>
                 <div class="two-col" data-backup-fields>
-                  <div class="field"><label for="date2" data-i18n="date2Label">Backup date</label><input id="date2" name="date2" type="text" inputmode="numeric" data-date-input data-required data-future-date data-i18n-placeholder="datePlaceholder" placeholder="YYYY-MM-DD"><span class="field-help" data-i18n="dateHelp">Choose today or a future date</span></div>
+                  <div class="field"><label for="date2" data-i18n="date2Label">Backup date</label><div class="date-control"><input id="date2" name="date2" type="text" inputmode="numeric" data-date-input data-required data-future-date data-i18n-placeholder="datePlaceholder" placeholder="YYYY-MM-DD"><button class="date-picker-btn" type="button" data-date-picker-button="date2" aria-label="Open calendar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><input class="date-picker-native" type="date" data-date-picker-for="date2" tabindex="-1" aria-hidden="true"></div><span class="field-help" data-i18n="dateHelp">Choose today or a future date</span></div>
                   <div class="field"><label for="time2" data-i18n="time2Label">Backup time</label><div class="time-control"><button class="ampm-toggle" type="button" data-time-toggle="time2">PM</button><input id="time2" name="time2" type="time" value="14:00" data-default-time="14:00" data-required></div><span class="field-help" data-i18n="requiredHelp">Required</span></div>
                 </div>
 
@@ -1723,7 +1787,7 @@
                   <div class="field"><label for="fullName" data-i18n="fullNameLabel">Full name as shown on passport</label><input id="fullName" name="fullName" autocomplete="name" placeholder="JOHN SMITH" data-required><span class="field-help" data-i18n="requiredHelp">Required</span></div>
                   <div class="two-col">
                     <div class="field"><label for="passportNo" data-i18n="passportNoLabel">Passport number</label><input id="passportNo" name="passportNo" placeholder="M12345678" data-required><span class="field-help" data-i18n="requiredHelp">Required</span></div>
-                    <div class="field"><label for="birthDate" data-i18n="birthDateLabel">Date of birth</label><input id="birthDate" name="birthDate" type="text" inputmode="numeric" data-date-input data-i18n-placeholder="birthDatePlaceholder" placeholder="YYYY-MM-DD" data-required><span class="field-help" data-i18n="requiredHelp">Required</span></div>
+                    <div class="field"><label for="birthDate" data-i18n="birthDateLabel">Date of birth</label><div class="date-control"><input id="birthDate" name="birthDate" type="text" inputmode="numeric" data-date-input data-i18n-placeholder="birthDatePlaceholder" placeholder="YYYY-MM-DD" data-required><button class="date-picker-btn" type="button" data-date-picker-button="birthDate" aria-label="Open calendar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3" stroke="currentColor" stroke-width="2"/><path d="M8 3v4M16 3v4M4 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><input class="date-picker-native" type="date" data-date-picker-for="birthDate" tabindex="-1" aria-hidden="true"></div><span class="field-help" data-i18n="requiredHelp">Required</span></div>
                   </div>
                   <div class="two-col">
                     <div class="field"><label for="gender" data-i18n="genderLabel">Gender</label><select id="gender" name="gender" data-required><option value="" data-i18n="selectOne">Select</option><option data-i18n="genderFemale">Female</option><option data-i18n="genderMale">Male</option><option data-i18n="genderOther">Other</option></select><span class="field-help" data-i18n="requiredHelp">Required</span></div>
@@ -1922,13 +1986,13 @@
 
   <script>
     const firebaseConfig = {
-      apiKey: "AIzaSyCcWWLiYxvKB8_9gaahW5fwyBavgO-AZQ8",
-      authDomain: "equipment-a6a8c.firebaseapp.com",
-      databaseURL: "https://equipment-a6a8c-default-rtdb.firebaseio.com",
-      projectId: "equipment-a6a8c",
-      storageBucket: "equipment-a6a8c.firebasestorage.app",
-      messagingSenderId: "816613863838",
-      appId: "1:816613863838:web:48dcd792f528e1c53a268f"
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
     };
     const BOOKINGS_COLLECTION = "reservations";
     const firebase = {
@@ -2490,6 +2554,37 @@
       }
     };
     Object.keys(compactPlanI18n).forEach((lang) => Object.assign(i18n[lang] || (i18n[lang] = {}), compactPlanI18n[lang]));
+    const finalPlanI18n = {
+      en: { fromLabel: "From" },
+      ko: {
+        fromLabel: "\uCD5C\uC800",
+        priceTitle: "전화 지원 플랜 선택",
+        planBoardTitle: "서비스 플랜",
+        tagPopular: "인기",
+        planIncludesTitle: "\uD3EC\uD568 \uC0AC\uD56D",
+        planBasicDesc: "예약이 아닌 단순 확인용.",
+        planStandardDesc: "예약 요청과 일정 조율.",
+        planRushDesc: "당일 빠른 처리.",
+        planSpecialDesc: "긴급 요청 최우선 시작.",
+        planBasicCard1: "1개 장소",
+        planBasicCard2: "최대 5회 전화",
+        planBasicCard3: "10분 간격 재시도",
+        planBasicCard4: "영업시간, 메뉴, 주차, 재고, 분실물 확인",
+        planStandardCard1: "Basic \uD3EC\uD568",
+        planStandardCard2: "예약 요청 전달",
+        planStandardCard3: "대체 날짜/시간 조율",
+        planRushCard1: "Standard \uD3EC\uD568",
+        planRushCard2: "2시간 내 처리",
+        planRushCard3: "당일 긴급 예약/문의 우선 대응",
+        planSpecialCard1: "Rush \uD3EC\uD568",
+        planSpecialCard2: "10분 내 우선 시작",
+        planSpecialCard3: "공항 픽업, 막판 예약, 병원 문의, 여행 문제"
+      },
+      ja: { fromLabel: "\u6700\u4F4E" },
+      zh: { fromLabel: "\u8D77" },
+      fr: { fromLabel: "\u00C0 partir de" }
+    };
+    Object.keys(finalPlanI18n).forEach((lang) => Object.assign(i18n[lang] || (i18n[lang] = {}), finalPlanI18n[lang]));
 
     const state = {
       lang: localStorage.getItem("kallLang") || "en",
@@ -2622,9 +2717,9 @@
         el.textContent = formatMoney(planPrices[plan]);
       });
       $$("[data-plan-label]").forEach((el) => {
-        el.textContent = planLabel(el.dataset.planLabel);
+        el.textContent = planName(el.dataset.planLabel);
       });
-      $("#chipPrice").textContent = `From ${formatMoney(planPrices.Basic)}`;
+      $("#chipPrice").textContent = `${t("fromLabel")} ${formatMoney(planPrices.Basic)}`;
     }
 
     function openLanguage() {
@@ -2689,14 +2784,51 @@
       if (digits.length <= 6) return `${digits.slice(0, 4)}-${digits.slice(4)}`;
       return `${digits.slice(0, 4)}-${digits.slice(4, 6)}-${digits.slice(6)}`;
     }
+    function syncDatePicker(input, picker) {
+      if (!input || !picker) return;
+      if (input.id === "birthDate") {
+        picker.removeAttribute("min");
+        picker.max = todayISO();
+      } else {
+        picker.min = todayISO();
+        picker.removeAttribute("max");
+      }
+      picker.value = isIsoDate(input.value) ? input.value : "";
+    }
     function prepareDateInput(input) {
       setDateInputMode(input);
+      const picker = $(`[data-date-picker-for="${input.id}"]`);
+      const button = $(`[data-date-picker-button="${input.id}"]`);
+      syncDatePicker(input, picker);
       input.addEventListener("input", () => {
         input.value = maskDateValue(input.value);
+        syncDatePicker(input, picker);
       });
       input.addEventListener("paste", () => {
-        requestAnimationFrame(() => { input.value = maskDateValue(input.value); });
+        requestAnimationFrame(() => {
+          input.value = maskDateValue(input.value);
+          syncDatePicker(input, picker);
+        });
       });
+      input.addEventListener("change", () => syncDatePicker(input, picker));
+      if (picker) {
+        picker.addEventListener("change", () => {
+          input.value = picker.value;
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+          input.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+      }
+      if (button && picker) {
+        button.addEventListener("click", () => {
+          syncDatePicker(input, picker);
+          try {
+            if (typeof picker.showPicker === "function") picker.showPicker();
+            else picker.click();
+          } catch (error) {
+            picker.click();
+          }
+        });
+      }
       setDateInputMode(input);
     }
     function formatDate(value) {
@@ -2926,7 +3058,7 @@
       const bookingRef = firebase.ref(firebase.db, bookingPath);
       const payload = sanitizeForFirebase({
         ...booking,
-        source: "index_v2",
+        source: "index_v4",
         firebasePath: bookingPath,
         updatedAtClient: new Date().toISOString()
       });
