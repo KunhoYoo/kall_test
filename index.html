@@ -382,9 +382,10 @@
     .price-card.special { --plan-accent: #7c3aed; --plan-accent-dark: #6d28d9; --plan-tint: #f5f3ff; }
     .price-card.featured {
       color: var(--ink);
-      background: #fff;
-      border-color: rgba(14,165,233,.24);
-      box-shadow: 0 12px 24px rgba(14,165,233,.12);
+      background: linear-gradient(180deg, #f8fcff 0%, #fff 54%);
+      border-color: rgba(0,150,255,.42);
+      box-shadow: 0 14px 30px rgba(0,150,255,.16), 0 0 0 1px rgba(0,150,255,.08);
+      animation: standardGlow 2.8s ease-in-out infinite;
     }
     .price-card.featured::after {
       content: none;
@@ -408,7 +409,11 @@
       font-weight: 930;
     }
     .price { margin-top: 6px; color: #0f172a; font-size: 25px; line-height: .95; font-weight: 950; white-space: nowrap; }
-    .price-card p { margin: 0; color: var(--ink-2); font-size: 9.8px; line-height: 1.3; font-weight: 680; }
+    @keyframes standardGlow {
+      0%, 100% { box-shadow: 0 12px 24px rgba(0,150,255,.11), 0 0 0 1px rgba(0,150,255,.08); }
+      50% { box-shadow: 0 16px 34px rgba(0,150,255,.22), 0 0 0 2px rgba(0,150,255,.16); }
+    }
+    .price-card p { margin: 0; color: var(--ink-2); font-size: 9.5px; line-height: 1.28; font-weight: 680; }
     .price-card.featured h3, .price-card.featured .price { color: var(--ink); text-shadow: none; }
     .price-card.featured h3 { color: var(--plan-accent-dark); background: var(--plan-tint); }
     .price-card.featured .price { color: #0f172a; }
@@ -435,7 +440,7 @@
     }
     .plan-feature-list {
       display: grid;
-      gap: 4px;
+      gap: 3px;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -444,8 +449,8 @@
       position: relative;
       padding-left: 14px;
       color: #172033;
-      font-size: 9.5px;
-      line-height: 1.24;
+      font-size: 8.8px;
+      line-height: 1.2;
       font-weight: 730;
     }
     .plan-feature-list li::before {
@@ -463,6 +468,21 @@
       font-size: 7px;
       line-height: 1;
       font-weight: 950;
+    }
+    .plan-feature-list li.plan-diff {
+      color: var(--plan-accent-dark);
+      font-weight: 900;
+    }
+    .plan-feature-list li.plan-diff::before {
+      background: var(--plan-accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--plan-accent) 15%, transparent);
+    }
+    .plan-feature-list li.plan-diff-current {
+      font-weight: 950;
+    }
+    .plan-feature-list li.plan-diff-current::before {
+      background: linear-gradient(135deg, var(--plan-accent), var(--plan-accent-dark));
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--plan-accent) 22%, transparent);
     }
     .plan-example {
       display: none;
@@ -513,29 +533,41 @@
     }
     .plan-limit-note {
       border-radius: 9px;
-      padding: 6px;
+      padding: 4px 5px;
       color: #9f1239;
       background: #fff1f2;
       border: 1px solid rgba(225,29,72,.16);
-      font-size: 8.8px;
-      line-height: 1.25;
+      font-size: 7.5px;
+      line-height: 1.16;
       font-weight: 760;
+      max-height: 43px;
+      overflow: hidden;
     }
     .popular-ribbon {
       position: absolute;
-      top: 27px;
-      right: -22px;
-      width: 84px;
-      height: 15px;
+      top: 4px;
+      right: 5px;
+      width: auto;
+      min-width: 26px;
+      height: 14px;
+      padding: 0 5px;
       display: grid;
       place-items: center;
-      transform: rotate(16deg);
+      transform: none;
+      border-radius: 999px;
       color: #fff;
-      background: #b83232;
-      font-size: 7px;
+      background: linear-gradient(120deg, #ff3b5c 0%, #ff7a45 42%, #ff3b5c 72%);
+      background-size: 220% 100%;
+      font-size: 6.5px;
       line-height: 1;
       font-weight: 950;
       letter-spacing: 0;
+      box-shadow: 0 6px 14px rgba(255,59,92,.24);
+      animation: popularShine 2.1s ease-in-out infinite;
+    }
+    @keyframes popularShine {
+      0%, 100% { background-position: 0% 50%; opacity: .92; transform: translateY(0); }
+      50% { background-position: 100% 50%; opacity: 1; transform: translateY(-1px); }
     }
     .tag-row { display: none; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
     .tag {
@@ -1622,7 +1654,7 @@
             <article class="price-card basic" data-select-plan="Basic" role="button" tabindex="0">
               <div class="price-top"><div><span class="plan-kicker" data-i18n="planBasicKicker">Inquiry</span><h3 data-i18n="planBasicName">Basic</h3></div><div class="price" data-price-plan="Basic">$6</div></div>
               <p class="plan-purpose" data-i18n="planBasicDesc">Simple phone checks when you do not need a reservation.</p>
-              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planBasicCard1">1 location</li><li data-i18n="planBasicCard2">Up to 5 call attempts</li><li data-i18n="planBasicCard3">10 min apart</li><li data-i18n="planBasicCard4">Simple questions: hours, menu, parking, stock, lost items</li></ul></div>
+              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planBasicCard1">1 location, up to 5 calls</li><li data-i18n="planBasicCard2">10 min apart</li><li data-i18n="planBasicCard3">Simple checks: hours, menu, parking, stock, lost items</li></ul></div>
               <div class="plan-local"><b>기초 서비스</b><strong>$6</strong><ul><li>1개 장소</li><li>최대 5회 전화 시도</li><li>10분 간격 재시도</li><li>영업시간, 메뉴, 주차, 재고, 분실물 확인</li></ul></div>
               <div class="plan-example" data-i18n="planBasicExample">Example: "Are you open today?" "Is parking available?"</div>
               <div class="tag-row"><span class="tag" data-i18n="tagAttempts">5 attempts</span><span class="tag" data-i18n="tagInterval">10 min interval</span></div>
@@ -1631,7 +1663,7 @@
               <span class="popular-ribbon" data-i18n="tagPopular">Most popular</span>
               <div class="price-top"><div><span class="plan-kicker" data-i18n="planStandardKicker">Main service</span><h3 data-i18n="planStandardName">Standard</h3></div><div class="price" data-price-plan="Standard">$12</div></div>
               <p class="plan-purpose" data-i18n="planStandardDesc">Reservation and schedule coordination for restaurants, clinics, beauty, and salons.</p>
-              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planStandardCard1">Everything in Basic</li><li data-i18n="planStandardCard2">Reservation or booking request</li><li data-i18n="planStandardCard3">Alternative date/time coordination</li></ul></div>
+              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planStandardCard1">1 location, up to 5 calls</li><li data-i18n="planStandardCard2">10 min apart</li><li data-i18n="planStandardCard3">Simple checks: hours, menu, parking, stock, lost items</li><li class="plan-diff plan-diff-current" data-i18n="planStandardDiff1">Added: reservation request</li><li class="plan-diff plan-diff-current" data-i18n="planStandardDiff2">Added: alternative date/time coordination</li></ul></div>
               <div class="plan-local"><b>표준 서비스</b><strong>$12</strong><ul><li>Basic 포함</li><li>예약 요청 전달</li><li>희망 시간이 어려우면 대체 날짜/시간 확인</li></ul></div>
               <div class="plan-example" data-i18n="planStandardExample">Example: "Please book a restaurant for 2 people at 7 PM."</div>
               <div class="tag-row"><span class="tag" data-i18n="tagBackup">Backup options</span><span class="tag" data-i18n="tagPopular">Most popular</span><span class="tag" data-i18n="tagAttempts">5 attempts</span></div>
@@ -1639,7 +1671,7 @@
             <article class="price-card rush" data-select-plan="Rush" role="button" tabindex="0">
               <div class="price-top"><div><span class="plan-kicker" data-i18n="planRushKicker">Same-day</span><h3 data-i18n="planRushName">Rush</h3></div><div class="price" data-price-plan="Rush">$22</div></div>
               <p class="plan-purpose" data-i18n="planRushDesc">Fast handling for urgent requests needed today.</p>
-              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planRushCard1">Everything in Standard</li><li data-i18n="planRushCard2">Processed within 2 hours</li><li data-i18n="planRushCard3">Same-day urgent booking or inquiry</li></ul></div>
+              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planRushCard1">1 location, up to 5 calls</li><li data-i18n="planRushCard2">10 min apart</li><li data-i18n="planRushCard3">Simple checks: hours, menu, parking, stock, lost items</li><li class="plan-diff" data-i18n="planStandardDiff1">Added: reservation request</li><li class="plan-diff" data-i18n="planStandardDiff2">Added: alternative date/time coordination</li><li class="plan-diff plan-diff-current" data-i18n="planRushDiff1">Added: processed within 2 hours</li><li class="plan-diff plan-diff-current" data-i18n="planRushDiff2">Added: same-day urgent booking/inquiry</li></ul></div>
               <div class="plan-local"><b>가속 서비스</b><strong>$22</strong><ul><li>Standard 포함</li><li>2시간 내 처리</li><li>당일 긴급 예약/문의 우선 대응</li></ul></div>
               <div class="plan-example" data-i18n="planRushExample">Example: "Please quickly check if a clinic appointment is possible today."</div>
               <div class="tag-row"><span class="tag" data-i18n="tagPriority">Priority</span><span class="tag" data-i18n="tagSameDay">Same day</span><span class="tag" data-i18n="tagFastResult">Fast result</span></div>
@@ -1647,7 +1679,7 @@
             <article class="price-card special" data-select-plan="Special" role="button" tabindex="0">
               <div class="price-top"><div><span class="plan-kicker" data-i18n="planSpecialKicker">10-minute start</span><h3 data-i18n="planSpecialName">Special</h3></div><div class="price" data-price-plan="Special">$40</div></div>
               <p class="plan-purpose" data-i18n="planSpecialDesc">Top-priority start for truly time-sensitive calls.</p>
-              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planSpecialCard1">Everything in Rush</li><li data-i18n="planSpecialCard2">Priority start within 10 minutes</li><li data-i18n="planSpecialCard3">Airport pickup, last-minute booking, clinic inquiry, travel issue</li></ul></div>
+              <div><div class="plan-section-title" data-i18n="planIncludesTitle">Includes</div><ul class="plan-feature-list"><li data-i18n="planSpecialCard1">1 location, up to 5 calls</li><li data-i18n="planSpecialCard2">10 min apart</li><li data-i18n="planSpecialCard3">Simple checks: hours, menu, parking, stock, lost items</li><li class="plan-diff" data-i18n="planStandardDiff1">Added: reservation request</li><li class="plan-diff" data-i18n="planStandardDiff2">Added: alternative date/time coordination</li><li class="plan-diff" data-i18n="planRushDiff1">Added: processed within 2 hours</li><li class="plan-diff" data-i18n="planRushDiff2">Added: same-day urgent booking/inquiry</li><li class="plan-diff plan-diff-current" data-i18n="planSpecialDiff1">Added: start within 10 minutes</li><li class="plan-diff plan-diff-current" data-i18n="planSpecialDiff2">Added: pickup, clinic, travel issue</li></ul></div>
               <div class="plan-local"><b>특별 가속</b><strong>$40</strong><ul><li>Rush 포함</li><li>10분 내 우선 처리 시작</li><li>공항 픽업, 막판 예약, 병원 예약 문의, 여행 일정 확인</li></ul></div>
               <div class="plan-limit-note" data-i18n="planSpecialLimit">Emergency medical, police, or legal issues are not handled. Clinic support is limited to appointment or basic inquiries.</div>
               <div class="tag-row"><span class="tag" data-i18n="tagTopPriority">Top priority</span><span class="tag" data-i18n="tagTenMinute">10 min start</span><span class="tag" data-i18n="tagTravel">Travel support</span></div>
@@ -2585,6 +2617,87 @@
       fr: { fromLabel: "\u00C0 partir de" }
     };
     Object.keys(finalPlanI18n).forEach((lang) => Object.assign(i18n[lang] || (i18n[lang] = {}), finalPlanI18n[lang]));
+    const expandedPlanI18n = {
+      en: {
+        planStandardCard1: "1 location", planStandardCard2: "Up to 5 calls", planStandardCard3: "10 min apart", planStandardCard4: "Hours/menu/parking/stock", planStandardCard5: "Reservation request", planStandardCard6: "Alternative time check",
+        planRushCard1: "1 location, up to 5 calls", planRushCard2: "10 min apart", planRushCard3: "Reservation request", planRushCard4: "Alternative time check", planRushCard5: "Within 2 hours", planRushCard6: "Same-day urgent inquiry",
+        planSpecialCard1: "1 location, up to 5 calls", planSpecialCard2: "Booking and alternatives", planSpecialCard3: "Same-day priority", planSpecialCard4: "Within 2 hours", planSpecialCard5: "Start within 10 minutes", planSpecialCard6: "Pickup, clinic, travel issue",
+        planSpecialLimit: "No emergency medical, police, or legal issues. Clinics: booking/basic inquiry only."
+      },
+      ko: {
+        planStandardCard1: "1개 장소", planStandardCard2: "최대 5회 전화", planStandardCard3: "10분 간격 재시도", planStandardCard4: "영업시간/메뉴/주차/재고 확인", planStandardCard5: "예약 요청 전달", planStandardCard6: "대체 시간 확인",
+        planRushCard1: "1개 장소, 최대 5회 전화", planRushCard2: "10분 간격 재시도", planRushCard3: "예약 요청 전달", planRushCard4: "대체 날짜/시간 조율", planRushCard5: "2시간 내 처리", planRushCard6: "당일 긴급 예약/문의",
+        planSpecialCard1: "1개 장소, 최대 5회 전화", planSpecialCard2: "예약 및 대체 시간 조율", planSpecialCard3: "당일 우선 처리", planSpecialCard4: "2시간 내 처리", planSpecialCard5: "10분 내 우선 시작", planSpecialCard6: "공항/병원/여행 문의",
+        planSpecialLimit: "응급 의료·경찰·법률 문제 제외. 병원은 예약/기본 문의만 가능."
+      },
+      ja: {
+        planStandardCard1: "1か所", planStandardCard2: "最大5回電話", planStandardCard3: "10分間隔で再試行", planStandardCard4: "営業時間/メニュー/駐車場/在庫確認", planStandardCard5: "予約依頼を伝達", planStandardCard6: "代替時間を確認",
+        planRushCard1: "1か所、最大5回電話", planRushCard2: "10分間隔で再試行", planRushCard3: "予約依頼を伝達", planRushCard4: "代替日時を調整", planRushCard5: "2時間以内に対応", planRushCard6: "当日急ぎの予約/問い合わせ",
+        planSpecialCard1: "1か所、最大5回電話", planSpecialCard2: "予約と代替時間調整", planSpecialCard3: "当日優先対応", planSpecialCard4: "2時間以内に対応", planSpecialCard5: "10分以内に優先開始", planSpecialCard6: "空港/病院/旅行の確認",
+        planSpecialLimit: "緊急医療、警察、法律問題は対象外。病院は予約/基本問い合わせのみ。"
+      },
+      zh: {
+        planStandardCard1: "1个地点", planStandardCard2: "最多5次电话", planStandardCard3: "每10分钟重试", planStandardCard4: "营业/菜单/停车/库存确认", planStandardCard5: "传达预约请求", planStandardCard6: "确认替代时间",
+        planRushCard1: "1个地点，最多5次电话", planRushCard2: "每10分钟重试", planRushCard3: "传达预约请求", planRushCard4: "协调替代日期/时间", planRushCard5: "2小时内处理", planRushCard6: "当天紧急预约/咨询",
+        planSpecialCard1: "1个地点，最多5次电话", planSpecialCard2: "预约和替代时间协调", planSpecialCard3: "当天优先处理", planSpecialCard4: "2小时内处理", planSpecialCard5: "10分钟内优先开始", planSpecialCard6: "机场/医院/旅行问题",
+        planSpecialLimit: "不处理紧急医疗、警察或法律问题。医院仅限预约/基本咨询。"
+      },
+      fr: {
+        planStandardCard1: "1 lieu", planStandardCard2: "Jusqu'à 5 appels", planStandardCard3: "Toutes les 10 min", planStandardCard4: "Horaires/menu/parking/stock", planStandardCard5: "Demande de réservation", planStandardCard6: "Vérifier autre horaire",
+        planRushCard1: "1 lieu, jusqu'à 5 appels", planRushCard2: "Toutes les 10 min", planRushCard3: "Demande de réservation", planRushCard4: "Coordination autre date/heure", planRushCard5: "Sous 2 heures", planRushCard6: "Demande urgente le jour même",
+        planSpecialCard1: "1 lieu, jusqu'à 5 appels", planSpecialCard2: "Réservation et alternatives", planSpecialCard3: "Priorité le jour même", planSpecialCard4: "Sous 2 heures", planSpecialCard5: "Départ sous 10 min", planSpecialCard6: "Pickup, clinique, voyage",
+        planSpecialLimit: "Urgences médicales, police et droit exclus. Clinique : réservation/question simple."
+      }
+    };
+    Object.keys(expandedPlanI18n).forEach((lang) => Object.assign(i18n[lang] || (i18n[lang] = {}), expandedPlanI18n[lang]));
+    const diffPlanI18n = {
+      en: {
+        planBasicCard1: "1 location, up to 5 calls", planBasicCard2: "10 min apart", planBasicCard3: "Simple checks: hours, menu, parking, stock, lost items",
+        planStandardCard1: "1 location, up to 5 calls", planStandardCard2: "10 min apart", planStandardCard3: "Simple checks: hours, menu, parking, stock, lost items",
+        planStandardDiff1: "Added: reservation request", planStandardDiff2: "Added: alternative date/time coordination",
+        planRushCard1: "1 location, up to 5 calls", planRushCard2: "10 min apart", planRushCard3: "Simple checks: hours, menu, parking, stock, lost items",
+        planRushDiff1: "Added: processed within 2 hours", planRushDiff2: "Added: same-day urgent booking/inquiry",
+        planSpecialCard1: "1 location, up to 5 calls", planSpecialCard2: "10 min apart", planSpecialCard3: "Simple checks: hours, menu, parking, stock, lost items",
+        planSpecialDiff1: "Added: start within 10 minutes", planSpecialDiff2: "Added: pickup, clinic, travel issue"
+      },
+      ko: {
+        planBasicCard1: "1개 장소, 최대 5회 전화", planBasicCard2: "10분 간격 재시도", planBasicCard3: "단순 확인: 영업시간, 메뉴, 주차, 재고, 분실물",
+        planStandardCard1: "1개 장소, 최대 5회 전화", planStandardCard2: "10분 간격 재시도", planStandardCard3: "단순 확인: 영업시간, 메뉴, 주차, 재고, 분실물",
+        planStandardDiff1: "추가: 예약 요청 전달", planStandardDiff2: "추가: 대체 날짜/시간 조율",
+        planRushCard1: "1개 장소, 최대 5회 전화", planRushCard2: "10분 간격 재시도", planRushCard3: "단순 확인: 영업시간, 메뉴, 주차, 재고, 분실물",
+        planRushDiff1: "추가: 2시간 내 처리", planRushDiff2: "추가: 당일 긴급 예약/문의",
+        planSpecialCard1: "1개 장소, 최대 5회 전화", planSpecialCard2: "10분 간격 재시도", planSpecialCard3: "단순 확인: 영업시간, 메뉴, 주차, 재고, 분실물",
+        planSpecialDiff1: "추가: 10분 내 우선 시작", planSpecialDiff2: "추가: 공항/병원/여행 문의"
+      },
+      ja: {
+        planBasicCard1: "1か所、最大5回電話", planBasicCard2: "10分間隔で再試行", planBasicCard3: "簡単確認: 営業時間、メニュー、駐車場、在庫、忘れ物",
+        planStandardCard1: "1か所、最大5回電話", planStandardCard2: "10分間隔で再試行", planStandardCard3: "簡単確認: 営業時間、メニュー、駐車場、在庫、忘れ物",
+        planStandardDiff1: "追加: 予約依頼を伝達", planStandardDiff2: "追加: 代替日時を調整",
+        planRushCard1: "1か所、最大5回電話", planRushCard2: "10分間隔で再試行", planRushCard3: "簡単確認: 営業時間、メニュー、駐車場、在庫、忘れ物",
+        planRushDiff1: "追加: 2時間以内に対応", planRushDiff2: "追加: 当日急ぎの予約/問い合わせ",
+        planSpecialCard1: "1か所、最大5回電話", planSpecialCard2: "10分間隔で再試行", planSpecialCard3: "簡単確認: 営業時間、メニュー、駐車場、在庫、忘れ物",
+        planSpecialDiff1: "追加: 10分以内に優先開始", planSpecialDiff2: "追加: 空港/病院/旅行の確認"
+      },
+      zh: {
+        planBasicCard1: "1个地点，最多5次电话", planBasicCard2: "每10分钟重试", planBasicCard3: "简单确认：营业、菜单、停车、库存、遗失物",
+        planStandardCard1: "1个地点，最多5次电话", planStandardCard2: "每10分钟重试", planStandardCard3: "简单确认：营业、菜单、停车、库存、遗失物",
+        planStandardDiff1: "新增：传达预约请求", planStandardDiff2: "新增：协调替代日期/时间",
+        planRushCard1: "1个地点，最多5次电话", planRushCard2: "每10分钟重试", planRushCard3: "简单确认：营业、菜单、停车、库存、遗失物",
+        planRushDiff1: "新增：2小时内处理", planRushDiff2: "新增：当天紧急预约/咨询",
+        planSpecialCard1: "1个地点，最多5次电话", planSpecialCard2: "每10分钟重试", planSpecialCard3: "简单确认：营业、菜单、停车、库存、遗失物",
+        planSpecialDiff1: "新增：10分钟内优先开始", planSpecialDiff2: "新增：机场/医院/旅行问题"
+      },
+      fr: {
+        planBasicCard1: "1 lieu, jusqu'à 5 appels", planBasicCard2: "Toutes les 10 min", planBasicCard3: "Vérifs simples: horaires, menu, parking, stock, objet perdu",
+        planStandardCard1: "1 lieu, jusqu'à 5 appels", planStandardCard2: "Toutes les 10 min", planStandardCard3: "Vérifs simples: horaires, menu, parking, stock, objet perdu",
+        planStandardDiff1: "Ajout: demande de réservation", planStandardDiff2: "Ajout: autre date/heure",
+        planRushCard1: "1 lieu, jusqu'à 5 appels", planRushCard2: "Toutes les 10 min", planRushCard3: "Vérifs simples: horaires, menu, parking, stock, objet perdu",
+        planRushDiff1: "Ajout: sous 2 heures", planRushDiff2: "Ajout: urgence le jour même",
+        planSpecialCard1: "1 lieu, jusqu'à 5 appels", planSpecialCard2: "Toutes les 10 min", planSpecialCard3: "Vérifs simples: horaires, menu, parking, stock, objet perdu",
+        planSpecialDiff1: "Ajout: départ sous 10 min", planSpecialDiff2: "Ajout: pickup, clinique, voyage"
+      }
+    };
+    Object.keys(diffPlanI18n).forEach((lang) => Object.assign(i18n[lang] || (i18n[lang] = {}), diffPlanI18n[lang]));
 
     const state = {
       lang: localStorage.getItem("kallLang") || "en",
@@ -3058,7 +3171,7 @@
       const bookingRef = firebase.ref(firebase.db, bookingPath);
       const payload = sanitizeForFirebase({
         ...booking,
-        source: "index_v4",
+        source: "index_v7",
         firebasePath: bookingPath,
         updatedAtClient: new Date().toISOString()
       });
